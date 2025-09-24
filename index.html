@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elham Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+      font-family: sans-serif;
+    }
+
+    nav {
+      position: fixed;
+      /* stays on top */
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 10;
+      /* higher than video and mask */
+      background: transparent;
+      /* fully see-through */
+    }
+
+    nav .logo {
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white;
+      font-size: 20px;
+      font-family: 'dancing script';
+    }
+
+    nav ul.center-links {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    nav ul.center-links li a {
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    nav .right-link a {
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+
+    /* --- Fullscreen girl video --- */
+    #girlVideo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* --- Boy mask image on top --- */
+    #boyMask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+      transform-origin: center center;
+      transition: transform 1.8s ease-out, opacity 2s ease;
+    }
+
+    /* --- Intro text --- */
+    #introText {
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      color: white;
+      font-size: 50px;
+      opacity: 0;
+      font-family: 'Great Vibes', cursive;
+
+      /* Start slightly lower and invisible */
+      transform: translateY(10px);
+      transform-origin: center center;
+      transition: transform .5s ease-out, opacity 1.5s ease;
+
+      z-index: 3;
+    }
+
+    #introText1 {
+      position: absolute;
+      top: 32%;
+      left: 21%;
+      color: white;
+      font-size: 75px;
+      opacity: 0;
+      font-family: 'Great Vibes', cursive;
+
+      /* Start slightly lower and invisible */
+      transform: translateY(20px);
+      transform-origin: center center;
+      transition: transform 0.5s ease-out, opacity 1.5s ease;
+
+      z-index: 3;
+    }
+
+    #introText2 {
+      position: absolute;
+      top: 52%;
+      left: 57%;
+      color: white;
+      font-size: 45px;
+      opacity: 0;
+      font-family: 'Great Vibes', cursive;
+
+      /* Start slightly lower and invisible */
+      transform: translateX(20px);
+      transform-origin: center center;
+      transition: transform 1.3s ease-out, opacity 1.5s ease;
+
+      z-index: 3;
+    }
+
+    #introText3 {
+      position: absolute;
+      top: 58%;
+      left: 57%;
+      color: white;
+      font-size: 75px;
+      opacity: 0;
+      font-family: 'Great Vibes', cursive;
+
+      /* Start slightly lower and invisible */
+      transform: translateY(20px);
+      transform-origin: center center;
+      transition: transform 1s ease-out, opacity 1.5s ease;
+
+      z-index: 3;
+    }
+
+    #introText4 {
+      position: absolute;
+      top: 90%;
+      left: 28%;
+      color: white;
+      font-size: 10px;
+      opacity: 0;
+      transform: scale(0.3);
+      /* start at 50% of final size */
+      transform-origin: center center;
+      transition: transform 3.5s ease-out, opacity 2s ease;
+      z-index: 3;
+      word-spacing: 15px;
+      letter-spacing: 7px;
+      /* increase or decrease letter space */
+    }
+
+    #introText.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #introText1.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #introText2.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #introText3.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #introText4.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #introText.zoom-out {
+      transform: translate(-55vw, -30vh) scale(2.5);
+      transition: transform 3s ease;
+      /* second transition for all texts */
+    }
+
+    #introText1.zoom-out {
+      transform: translate(-57vw, -30vh) scale(2.5);
+      transition: transform 3s ease;
+      /* second transition for all texts */
+    }
+
+    #introText2.zoom-out {
+      transform: translate(50vw, 35vh) scale(2);
+      transition: transform 3s ease;
+      /* second transition for all texts */
+    }
+
+    #introText3.zoom-out {
+      transform: translate(57vw, 40vh) scale(2.5);
+      transition: transform 3s ease;
+      /* second transition for all texts */
+    }
+
+    /* staff after intro text animation */
+    #staffText {
+      margin-top: 400px;
+      margin-left: 50px;
+      color: white;
+      display: flex;
+    }
+
+    #staffText p {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    #staffText p.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+   
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation bar -->
+  <nav>
+    <div class="logo">ELHAM</div>
+
+    <!-- Center links -->
+    <ul class="center-links">
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="about.html#projects">PROJECTS</a></li>
+      <li><a href="about.html#contact">CONTACT</a></li>
+    </ul>
+
+    <!-- Right link -->
+    <div class="right-link">
+      <a href="https://www.instagram.com/elham.sadiqi.568?igsh=MWY2eG55NDV1Y25uaQ==">INSTAGRAM</a>
+    </div>
+  </nav>
+
+
+  <!-- Fullscreen girl video -->
+  <video src="background video.mp4" autoplay muted id="girlVideo"></video>
+
+  <!-- Boy mask on top -->
+  <img src="close.png" id="boyMask" alt="Boy Mask">
+
+  <!-- Intro text -->
+  <div>
+    <p id="introText" class="">between</p>
+    <p id="introText1" class="">Reality</p>
+  </div>
+
+  <div>
+    <p id="introText2" class="">&</p>
+    <p id="introText3" class="">Dream</p>
+  </div>
+
+  <p id="introText4">SHOTS THAT WILL CHANGE YOUR MIND</p>
+
+  <!-- staff after intro text animation -->
+  <div id="staffText">
+    <p style="font-size: 70px; font-family: Arial, Helvetica, sans-serif;">Push</p>
+    <p style="font-size: 25px; margin-top: 24px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif;">the</p>
+    <p style="font-size: 70px; margin-top: 48px; margin-left: -40px; font-family: Arial, Helvetica, sans-serif;">
+      Envelope</p>
+  </div>
+
+
+
+  <script>
+    // Array of all intro text IDs
+    const introTextIds = ['introText', 'introText1', 'introText2', 'introText3', 'introText4'];
+    const boyMask = document.getElementById('boyMask');
+
+    // 1️⃣ Fade in intro texts after 1s
+    introTextIds.forEach(id => {
+      setTimeout(() => {
+        document.getElementById(id).classList.add('show');
+      }, 1000);
+    });
+
+    // 2️⃣ Start zoom after 3s
+    setTimeout(() => {
+      // Scale the boy mask
+      boyMask.style.transform = 'scale(6)';
+
+      // Apply zoom-out class to all texts
+      introTextIds.forEach(id => {
+        document.getElementById(id).classList.add('zoom-out');
+      });
+
+      // 3️⃣ Fade out the boy mask slightly before zoom finishes
+      setTimeout(() => {
+        boyMask.style.opacity = '0';
+      }, 900);
+
+      // 4️⃣ Fade out all texts
+      setTimeout(() => {
+        introTextIds.forEach(id => {
+          document.getElementById(id).style.opacity = '0';
+        });
+      }, 2500);
+
+    }, 5000);
+
+    const staffParagraphs = document.querySelectorAll('#staffText p');
+
+    setTimeout(() => {
+      staffParagraphs.forEach((p, i) => {
+        setTimeout(() => {
+          p.classList.add('show');
+        }, i * 200); // optional: stagger each word by 200ms
+      });
+    }, 7500); // starts at 7.5s
+
+
+  </script>
+
+</body>
+
+</html>
