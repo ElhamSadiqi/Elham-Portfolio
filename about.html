@@ -172,10 +172,13 @@
 
         @media (max-width: 600px) {
 
+            body{
+                height: 3660px;
+            }
+
             .center-links,.right-link{
                 display: none !important;
             }
-
 
             .hamburger {
                 display: flex;
@@ -186,6 +189,20 @@
                 position: absolute; /* allows you to place it freely */
                 top: 20px;          /* distance from the top of nav */
                 left: 365px;        /* distance from the left edge */
+            }
+
+            .center-links {
+                position: absolute;
+                top: 0;
+                left: 0;
+                flex-direction: column;
+                width: 100%;
+                background: rgb(1, 1, 23);
+                transition: 0.3s;
+            }
+
+            .center-links.show {
+                left: 0;
             }
 
             .nav-links {
@@ -221,7 +238,20 @@
             }
 
             .vertical-line{
-                height: 400px;
+                height: 150px;
+            }
+
+            .wave{
+                font-size: 40px !important;
+                margin-left: -10px;
+            }
+            .hi-text{
+                font-size: 40px !important;
+            }
+
+            .hi-text1,.hi-text2{
+                font-size: 18px !important;
+                margin-top: 5px ;
             }
 
             .intrdouction,.overview{
@@ -263,6 +293,82 @@
                 margin-top: 25px;
             }
             
+            .container-contact{
+                width: 355px !important;
+                height: 520px !important;
+                margin-left: 20px !important;
+            }
+
+            .get-in-touch{
+                font-size: 13px !important;
+                margin-left: -10px;
+                margin-top: -15px;
+            }
+            
+            .phone-icon{
+                margin-left: 75px !important;
+                margin-top: -15px;
+                width: 18px !important;
+                height: 18px !important;
+            }
+
+            .phone-number{
+                font-size: 15px !important;
+                margin-top: -15px;
+            }
+
+            .contact-text{
+                font-size: 30px !important;
+            }
+
+            .name-email-div{
+                margin-left: 15px !important;
+                margin-top: 50px !important;
+            }
+
+            .email-icon{
+                margin-left: 95px !important;
+            }
+
+            input{
+                width: 161px !important;
+                height: 40px !important;
+                margin-left: 10px !important;
+            }
+
+            .message-div{
+                margin-left: -21px !important;
+                margin-top: 20px !important;
+            }
+
+            .message-input{
+                width: 335px !important;
+                height: 150px !important;
+                margin-left: 10px !important;
+                font-size: 7px !important;
+            }
+
+            .message-input::placeholder {
+                position: relative;
+                top: -55px;
+                left: -10px;
+                /* nudge upward */
+            }
+
+            .button-div{
+                width: 335px !important;
+                height: 40px !important;
+                margin-left: 10px !important;
+            }
+
+            .send-message-btn{
+                margin-left: 90px !important;
+                margin-top: 10px !important;
+            }
+
+            .telegram-icon{
+                margin-top: 10px !important;
+            }
         }
     </style>
 </head>
@@ -281,7 +387,7 @@
         </div>
 
         <!-- Center links -->
-        <ul class="center-links nav-links">
+        <ul id="nav-links" class="center-links nav-links">
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#projects">PROJECTS</a></li>
             <li><a href="#contact">CONTACT</a></li>
@@ -300,12 +406,12 @@
                 <div class="vertical-line"></div>
             </div>
             <div style="margin-left: 20px;">
-                <p style="font-size: 85px; font-weight: bolder; font-family: sans-serif">Hi, I'm <span
+                <p class="hi-text" style="font-size: 85px; font-weight: bolder; font-family: sans-serif">Hi, I'm <span
                         style="color: rgb(168, 76, 254);">Elham </span><span class="wave">👋</span></p>
-                <p style="font-size: 35px; ">I'm a <span style="color: rgb(168, 76, 254); font-weight: bolder;">Computer
+                <p class="hi-text1" style="font-size: 35px; ">I'm a <span style="color: rgb(168, 76, 254); font-weight: bolder;">Computer
                         Enthusiast</span></p>
 
-                <p style="font-size: 32px; font-weight: bold;">Welcome to my portfolio</p>
+                <p class="hi-text2" style="font-size: 32px; font-weight: bold;">Welcome to my portfolio</p>
             </div>
         </div>
 
@@ -417,20 +523,20 @@
 
     <section id="contact">
         <div
-            style="background-color: rgb(11, 11, 42); width: 910px; height: 675px; border-radius: 15px; margin-top: 100px; margin-left: 100px;">
-            <div style="display: flex; padding-top: 35px; margin-left: 35px;">
-                <p style="font-size: 19px; color: rgb(195, 195, 255);">GET IN TOUCH</p>
-                <img style="width: 20px; height: 20px; border-radius: 100%; margin-left: 535px;" src="phone-call.png">
-                <p style="font-size: 19px; margin-left: 5px; color: #C013F4">+93 787 815 007</p>
+            class="container-contact" style="background-color: rgb(11, 11, 42); width: 910px; height: 675px; border-radius: 15px; margin-top: 100px; margin-left: 100px;">
+            <div class="get-in-touch-phone-div" style="display: flex; padding-top: 35px; margin-left: 35px;">
+                <p class="get-in-touch" style="font-size: 19px; color: rgb(195, 195, 255);">GET IN TOUCH</p>
+                <img class="phone-icon" style="width: 20px; height: 20px; border-radius: 100%; margin-left: 535px;" src="phone-call.png">
+                <p class="phone-number" style="font-size: 19px; margin-left: 5px; color: #C013F4">+93 787 815 007</p>
             </div>
 
-            <p style="font-weight: bold; font-size: 50px; text-align: center; margin-top: 30px;">CONTACT.</p>
+            <p class="contact-text" style="font-weight: bold; font-size: 50px; text-align: center; margin-top: 30px;">CONTACT.</p>
 
-            <div style="display: flex; margin-top: 65px; margin-left: 35px;">
+            <div class="name-email-div" style="display: flex; margin-top: 65px; margin-left: 35px;">
                 <img style="width: 20px; height: 20px; border-radius: 100%;" src="profile.png">
                 <p style="margin-left: 10px; font-weight: bold; font-size: 18px;">Name</p>
 
-                <img style="width: 18px; height: 18px; margin-left: 355px;" src="email.png">
+                <img class="email-icon" style="width: 18px; height: 18px; margin-left: 355px;" src="email.png">
                 <p style="margin-left: 10px; font-weight: bold; font-size: 18px;">Email</p>
             </div>
 
@@ -441,7 +547,7 @@
                 style="background-color: rgb(13, 13, 54); border: solid rgba(0, 0, 0, 0.205); width: 405px; height: 50px; border-radius: 10px; margin-left: 22px; margin-top: 10px; font-size: 16px; padding-left: 27px;  caret-color: white; color: white;"
                 type="text" placeholder="Your email">
 
-            <div style="display: flex; margin-top: 35px;">
+            <div class="message-div" style="display: flex; margin-top: 35px;">
                 <img style="width: 18px; height: 18px; margin-left: 38px;" src="speech-bubble.png">
                 <p style="margin-left: 10px; font-weight: bold; font-size: 18px;">Message</p>
             </div>
@@ -452,9 +558,9 @@
                 placeholder="Hey Elham, love the website! I'd like to chat about some opportunities you might like! 🎉">
 
             <div
-                style="display: flex; margin-left: 38px; border: none; border-radius: 10px; width: 833px; height: 50px; margin-top: 30px; color: white; background: linear-gradient(to right, #601471,#8f1da8, #ff5eaf,#ff0080); font-weight: bold; font-size: 18px;">
-                <p style="margin-top: 15px; margin-left: 350px;">Send Message</p>
-                <img style="width: 20px; height: 20px; margin-top: 16px; margin-left: 5px;" src="telegram.png">
+                class="button-div" style="display: flex; margin-left: 38px; border: none; border-radius: 10px; width: 833px; height: 50px; margin-top: 30px; color: white; background: linear-gradient(to right, #601471,#8f1da8, #ff5eaf,#ff0080); font-weight: bold; font-size: 18px;">
+                <p class="send-message-btn" style="margin-top: 15px; margin-left: 350px;">Send Message</p>
+                <img class="telegram-icon" style="width: 20px; height: 20px; margin-top: 16px; margin-left: 5px;" src="telegram.png">
             </div>
         </div>
     </section>
