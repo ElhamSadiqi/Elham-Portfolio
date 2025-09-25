@@ -77,6 +77,20 @@
 
         }
 
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+        }
+
         .wave {
             margin-left: -20px;
 
@@ -158,6 +172,46 @@
 
         @media (max-width: 600px) {
 
+            .center-links,.right-link{
+                display: none !important;
+            }
+
+
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+
+                position: absolute; /* allows you to place it freely */
+                top: 20px;          /* distance from the top of nav */
+                left: 365px;        /* distance from the left edge */
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 0;
+                left: 0;
+                flex-direction: column;
+                width: 100%;
+                background: rgb(1, 1, 23);
+                transition: 0.3s;
+            }
+
+            .nav-links.show {
+                left: 0;
+            }
+
+            .nav-links li {
+                text-align: center;
+                margin: 15px 0;
+            }
+            
+           
+            .logo{
+                margin-left: -15px;
+            }
+
              .Welcome-message-div{
                 width: 400px;
             }
@@ -205,7 +259,7 @@
             }
 
             .projects-div{
-                margin-left: 55px;
+                margin-left: 40px;
                 margin-top: 25px;
             }
             
@@ -219,8 +273,15 @@
             <a href="index.html" class="logo">ELHAM</a>
         </div>
 
+         <!-- Hamburger menu for mobile only -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <!-- Center links -->
-        <ul class="center-links">
+        <ul class="center-links nav-links">
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#projects">PROJECTS</a></li>
             <li><a href="#contact">CONTACT</a></li>
@@ -398,7 +459,14 @@
         </div>
     </section>
 
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
 
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
 </body>
 
 </html>
