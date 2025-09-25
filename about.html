@@ -155,6 +155,61 @@
             top: -75px;
             /* nudge upward */
         }
+
+        @media (max-width: 600px) {
+
+             .Welcome-message-div{
+                width: 400px;
+            }
+
+            .vertical-line-circle{
+                margin-left: -70px;
+            }
+
+            .vertical-line{
+                height: 400px;
+            }
+
+            .intrdouction,.overview{
+                margin-left: 45px;
+            }
+
+            .profile-div{
+                margin-left: -20px;
+                height: fit-content;
+            }
+
+            .container-overview{
+                display: block !important;
+                width: 300px;
+                height: fit-content;
+            }
+
+            .information-div{
+                height: fit-content;
+                width: fit-content;
+                padding-top: 20px;
+                margin-left: -80px !important;
+            }
+
+            .detail{
+                width: 370px;
+            }
+
+            .text-projects{
+                margin-left: 60px;
+            }
+
+            .container-projects{
+                display: block !important;
+            }
+
+            .projects-div{
+                margin-left: 55px;
+                margin-top: 25px;
+            }
+            
+        }
     </style>
 </head>
 
@@ -177,9 +232,9 @@
         </div>
     </nav>
 
-    <section  id="about">
-        <div style="margin-top: 150px; margin-left: 100px; display: flex;">
-            <div>
+    <section id="about">
+        <div class="Welcome-message-div" style="margin-top: 150px; margin-left: 100px; display: flex;">
+            <div class="vertical-line-circle">
                 <div style="background-color:rgb(168, 76, 254); width: 25px; height: 25px; border-radius: 100%;"></div>
                 <div class="vertical-line"></div>
             </div>
@@ -193,11 +248,11 @@
             </div>
         </div>
 
-        <p style="margin-top: 200px; font-size: 18px; text-align: center; color: rgb(214, 214, 214);">INTRODUCTION</p>
-        <p style="margin-top: 5px; font-size: 60px; text-align: center; font-weight: bold;">Overview.</p>
+        <p class="intrdouction" style="margin-top: 200px; font-size: 18px; text-align: center; color: rgb(214, 214, 214);">INTRODUCTION</p>
+        <p class="overview" style="margin-top: 5px; font-size: 60px; text-align: center; font-weight: bold;">Overview.</p>
 
-        <div style="display: flex; margin-left: 100px; margin-top: 30px;">
-            <div>
+        <div class="container-overview" style="display: flex; margin-left: 100px; margin-top: 30px;">
+            <div class="profile-div">
                 <img style="width: 250px; height: 250px; border-radius: 100%;
                     box-shadow: 0 0 10px rgb(168, 76, 254), 0 0 20px rgb(168, 76, 254), 0 0 30px rgb(168, 76, 254); "
                 src="girl pic.jpg">
@@ -213,8 +268,8 @@
                 </div>
             </div>
 
-            <div style="width: 620px; margin-left: 70px;">
-                <div style="display: flex; margin-top: 20px;">
+            <div class="information-div" style="width: 620px; margin-left: 70px;">
+                <div class="detail" style="display: flex; margin-top: 20px;">
                     <p style="font-size: 30px;">👨‍💻</p>
                     <p style="font-size: 20px; margin-left: 10px; color: rgba(153, 227, 250, 0.736);">I’m a Computer
                         Science
@@ -222,7 +277,7 @@
                     </p>
                 </div>
 
-                <div style="display: flex; margin-top: 25px;">
+                <div class="detail" style="display: flex; margin-top: 25px;">
                     <p style="font-size: 30px;">🎓</p>
                     <p style="font-size: 20px; margin-left: 10px; color: rgba(153, 227, 250, 0.736);">Currently working
                         toward
@@ -232,7 +287,7 @@
                     </p>
                 </div>
 
-                <div style="display: flex; margin-top: 25px;">
+                <div class="detail" style="display: flex; margin-top: 25px;">
                     <p style="font-size: 30px; margin-left: 5px;">🛠</p>
                     <p style="font-size: 20px; margin-left: 15px; color: rgba(153, 227, 250, 0.736);">From front-end
                         development with HTML, CSS, and JavaScript to exploring React and other modern tools, I enjoy
@@ -240,7 +295,7 @@
                     </p>
                 </div>
 
-                <div style="display: flex; margin-top: 25px;">
+                <div class="detail" style="display: flex; margin-top: 25px;">
                     <p style="font-size: 30px; margin-left: -1px;">💡</p>
                     <p style="font-size: 20px; margin-left: 10px; color: rgba(153, 227, 250, 0.736);">Curious and always
                         learning, I’m excited to keep growing my skills and to contribute to real-world projects that
@@ -252,9 +307,9 @@
     </section>
 
     <section id="projects">
-        <p style="font-size: 65px; font-weight: bold; text-align: center; margin-top: 80px;">Projects.</p>
+        <p class="text-projects" style="font-size: 65px; font-weight: bold; text-align: center; margin-top: 80px;">Projects.</p>
 
-        <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+        <div class="container-projects" style="display: flex; justify-content: space-around; margin-top: 20px;">
             <div class="projects-div">
                 <img style="width: 289px; height: 220px; border-radius: 15px; margin-top: 15px; margin-left: 15px;"
                     src="huly.png">
