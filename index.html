@@ -343,7 +343,6 @@
   </main>
 
   <script>
-    // ===== Loading logic =====
     const video = document.getElementById('girlVideo');
     const image = document.getElementById('boyMask');
 
@@ -352,25 +351,39 @@
 
     function checkAllReady() {
       if (videoReady && imageReady) {
+        // Hide loader and show the page
         document.getElementById('loader').style.display = 'none';
         document.getElementById('pageContent').style.display = 'block';
-        startIntroAnimation(); // start your existing animations
+        // ✅ Start animations only now
+        startIntroAnimation();
       }
     }
 
-    // video fires 'loadeddata' when enough data is loaded to start playing
-    video.addEventListener('loadeddata', () => {
+    // --- Check if they are already loaded before attaching listeners ---
+    if (video.readyState >= 3) { // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
       videoReady = true;
-      checkAllReady();
-    });
+    } else {
+      video.addEventListener('loadeddata', () => {
+        videoReady = true;
+        checkAllReady();
+      });
+    }
 
-    // image fires 'load' when fully downloaded
-    image.addEventListener('load', () => {
+    if (image.complete) {
       imageReady = true;
-      checkAllReady();
-    });
+    } else {
+      image.addEventListener('load', () => {
+        imageReady = true;
+        checkAllReady();
+      });
+    }
 
-    // ===== Your existing intro animation, wrapped in a function =====
+    // Run once in case both were ready from the start
+    checkAllReady();
+
+    // ===============================
+    //   ✅ Put your intro animation here
+    // ===============================
     function startIntroAnimation() {
       const introTextIds = ['introText', 'introText1', 'introText2', 'introText3', 'introText4'];
       const boyMask = document.getElementById('boyMask');
@@ -403,6 +416,7 @@
 
       }, 5000);
 
+      // Show staff text after 7.5s
       const staffParagraphs = document.querySelectorAll('#staffText p');
       setTimeout(() => {
         staffParagraphs.forEach((p, i) => {
@@ -411,6 +425,7 @@
       }, 7500);
     }
   </script>
+
 
 
 </body>
