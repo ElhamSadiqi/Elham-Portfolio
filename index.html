@@ -25,6 +25,20 @@
       font-family: sans-serif;
     }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
     nav {
       position: fixed;
       /* stays on top */
@@ -293,6 +307,10 @@
 
     @media (max-width: 600px) {
 
+      body{
+        overflow: hidden;
+      }
+
       .center-links,
       .right-link {
         display: none !important;
@@ -326,10 +344,6 @@
         left: 0;
       }
 
-      nav {
-        width: 400px !important;
-      }
-
       .nav-links {
         position: absolute;
         top: 0;
@@ -349,24 +363,24 @@
       }
 
       .boy-image {
-        width: 500px !important;
+        width: 400px !important;
       }
 
-      #staffText{
+      #staffText {
         margin-top: 500px !important;
       }
 
-      .push-text{
+      .push-text {
         margin-left: -30px !important;
         font-size: 40px !important;
       }
 
-      .the-text{
+      .the-text {
         font-size: 20px !important;
         margin-top: 12px !important;
       }
 
-      .envelope-text{
+      .envelope-text {
         font-size: 40px !important;
         margin-top: 27px !important;
         margin-left: -30px !important;
@@ -431,9 +445,11 @@
     <!-- staff after intro text animation -->
     <div id="staffText">
       <p class="push-text" style="font-size: 70px; font-family: Arial, Helvetica, sans-serif;">Push</p>
-      <p class="the-text" style="font-size: 25px; margin-top: 24px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif;">the
+      <p class="the-text"
+        style="font-size: 25px; margin-top: 24px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif;">the
       </p>
-      <p class="envelope-text" style="font-size: 70px; margin-top: 48px; margin-left: -40px; font-family: Arial, Helvetica, sans-serif;">
+      <p class="envelope-text"
+        style="font-size: 70px; margin-top: 48px; margin-left: -40px; font-family: Arial, Helvetica, sans-serif;">
         Envelope</p>
     </div>
 
@@ -465,7 +481,7 @@
         loaderText.textContent = messages[msgIndex];
         loaderText.classList.remove('fade-out');
       }, 800); // match transition duration in CSS
-    }, 1000);
+    }, 2000);
 
     // ===============================
     // 🔹 Check resources
@@ -556,4 +572,3 @@
 </body>
 
 </html>
-
