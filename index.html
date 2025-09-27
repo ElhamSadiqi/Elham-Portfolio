@@ -252,109 +252,167 @@
       transform: translateY(0);
     }
 
-   
+    /* === Loader overlay === */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #loader .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #555;
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- Navigation bar -->
-  <nav>
-    <div class="logo">ELHAM</div>
+  <!-- 🌟 Loading Screen -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading…</p>
+  </div>
 
-    <!-- Center links -->
-    <ul class="center-links">
-      <li><a href="about.html">ABOUT</a></li>
-      <li><a href="about.html#projects">PROJECTS</a></li>
-      <li><a href="about.html#contact">CONTACT</a></li>
-    </ul>
+  <main id="pageContent" style="display:none;">
+    <!-- Navigation bar -->
+    <nav>
+      <div class="logo">ELHAM</div>
 
-    <!-- Right link -->
-    <div class="right-link">
-      <a href="https://www.instagram.com/elham.sadiqi.568?igsh=MWY2eG55NDV1Y25uaQ==">INSTAGRAM</a>
+      <!-- Center links -->
+      <ul class="center-links">
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="about.html#projects">PROJECTS</a></li>
+        <li><a href="about.html#contact">CONTACT</a></li>
+      </ul>
+
+      <!-- Right link -->
+      <div class="right-link">
+        <a href="https://www.instagram.com/elham.sadiqi.568?igsh=MWY2eG55NDV1Y25uaQ==">INSTAGRAM</a>
+      </div>
+    </nav>
+
+
+    <!-- Fullscreen girl video -->
+    <video src="background video.mp4" autoplay muted id="girlVideo"></video>
+
+    <!-- Boy mask on top -->
+    <img src="close.png" id="boyMask" alt="Boy Mask">
+
+    <!-- Intro text -->
+    <div>
+      <p id="introText" class="">between</p>
+      <p id="introText1" class="">Reality</p>
     </div>
-  </nav>
+
+    <div>
+      <p id="introText2" class="">&</p>
+      <p id="introText3" class="">Dream</p>
+    </div>
+
+    <p id="introText4">SHOTS THAT WILL CHANGE YOUR MIND</p>
+
+    <!-- staff after intro text animation -->
+    <div id="staffText">
+      <p style="font-size: 70px; font-family: Arial, Helvetica, sans-serif;">Push</p>
+      <p style="font-size: 25px; margin-top: 24px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif;">the
+      </p>
+      <p style="font-size: 70px; margin-top: 48px; margin-left: -40px; font-family: Arial, Helvetica, sans-serif;">
+        Envelope</p>
+    </div>
 
 
-  <!-- Fullscreen girl video -->
-  <video src="background video.mp4" autoplay muted id="girlVideo"></video>
 
-  <!-- Boy mask on top -->
-  <img src="close.png" id="boyMask" alt="Boy Mask">
-
-  <!-- Intro text -->
-  <div>
-    <p id="introText" class="">between</p>
-    <p id="introText1" class="">Reality</p>
-  </div>
-
-  <div>
-    <p id="introText2" class="">&</p>
-    <p id="introText3" class="">Dream</p>
-  </div>
-
-  <p id="introText4">SHOTS THAT WILL CHANGE YOUR MIND</p>
-
-  <!-- staff after intro text animation -->
-  <div id="staffText">
-    <p style="font-size: 70px; font-family: Arial, Helvetica, sans-serif;">Push</p>
-    <p style="font-size: 25px; margin-top: 24px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif;">the</p>
-    <p style="font-size: 70px; margin-top: 48px; margin-left: -40px; font-family: Arial, Helvetica, sans-serif;">
-      Envelope</p>
-  </div>
-
-
+  </main>
 
   <script>
-    // Array of all intro text IDs
-    const introTextIds = ['introText', 'introText1', 'introText2', 'introText3', 'introText4'];
-    const boyMask = document.getElementById('boyMask');
+    // ===== Loading logic =====
+    const video = document.getElementById('girlVideo');
+    const image = document.getElementById('boyMask');
 
-    // 1️⃣ Fade in intro texts after 1s
-    introTextIds.forEach(id => {
-      setTimeout(() => {
-        document.getElementById(id).classList.add('show');
-      }, 1000);
+    let videoReady = false;
+    let imageReady = false;
+
+    function checkAllReady() {
+      if (videoReady && imageReady) {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('pageContent').style.display = 'block';
+        startIntroAnimation(); // start your existing animations
+      }
+    }
+
+    // video fires 'loadeddata' when enough data is loaded to start playing
+    video.addEventListener('loadeddata', () => {
+      videoReady = true;
+      checkAllReady();
     });
 
-    // 2️⃣ Start zoom after 3s
-    setTimeout(() => {
-      // Scale the boy mask
-      boyMask.style.transform = 'scale(6)';
+    // image fires 'load' when fully downloaded
+    image.addEventListener('load', () => {
+      imageReady = true;
+      checkAllReady();
+    });
 
-      // Apply zoom-out class to all texts
+    // ===== Your existing intro animation, wrapped in a function =====
+    function startIntroAnimation() {
+      const introTextIds = ['introText', 'introText1', 'introText2', 'introText3', 'introText4'];
+      const boyMask = document.getElementById('boyMask');
+
+      // Fade in intro texts after 1s
       introTextIds.forEach(id => {
-        document.getElementById(id).classList.add('zoom-out');
-      });
-
-      // 3️⃣ Fade out the boy mask slightly before zoom finishes
-      setTimeout(() => {
-        boyMask.style.opacity = '0';
-      }, 900);
-
-      // 4️⃣ Fade out all texts
-      setTimeout(() => {
-        introTextIds.forEach(id => {
-          document.getElementById(id).style.opacity = '0';
-        });
-      }, 2500);
-
-    }, 5000);
-
-    const staffParagraphs = document.querySelectorAll('#staffText p');
-
-    setTimeout(() => {
-      staffParagraphs.forEach((p, i) => {
         setTimeout(() => {
-          p.classList.add('show');
-        }, i * 200); // optional: stagger each word by 200ms
+          document.getElementById(id).classList.add('show');
+        }, 1000);
       });
-    }, 7500); // starts at 7.5s
 
+      // Start zoom after 3s
+      setTimeout(() => {
+        boyMask.style.transform = 'scale(6)';
+        introTextIds.forEach(id => {
+          document.getElementById(id).classList.add('zoom-out');
+        });
 
+        // Fade out the boy mask slightly before zoom finishes
+        setTimeout(() => {
+          boyMask.style.opacity = '0';
+        }, 900);
+
+        // Fade out all texts
+        setTimeout(() => {
+          introTextIds.forEach(id => {
+            document.getElementById(id).style.opacity = '0';
+          });
+        }, 2500);
+
+      }, 5000);
+
+      const staffParagraphs = document.querySelectorAll('#staffText p');
+      setTimeout(() => {
+        staffParagraphs.forEach((p, i) => {
+          setTimeout(() => p.classList.add('show'), i * 200);
+        });
+      }, 7500);
+    }
   </script>
 
-</body>
 
+</body>
 
 </html>
