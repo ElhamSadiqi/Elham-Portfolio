@@ -290,6 +290,88 @@
         transform: rotate(360deg);
       }
     }
+
+    @media (max-width: 600px) {
+
+      .center-links,
+      .right-link {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+
+        position: absolute;
+        /* allows you to place it freely */
+        top: 20px;
+        /* distance from the top of nav */
+        left: 0px;
+        /* distance from the left edge */
+      }
+
+      .center-links {
+        position: absolute;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        background: rgb(1, 1, 23);
+        transition: 0.3s;
+      }
+
+      .center-links.show {
+        left: 0;
+      }
+
+      nav {
+        width: 400px !important;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        background: rgb(1, 1, 23);
+        transition: 0.3s;
+      }
+
+      .nav-links.show {
+        left: 0;
+      }
+
+      .logo {
+        margin-left: -17px;
+      }
+
+      .boy-image {
+        width: 400px !important;
+      }
+
+      #staffText{
+        margin-top: 500px !important;
+      }
+
+      .push-text{
+        margin-left: -30px !important;
+        font-size: 40px !important;
+      }
+
+      .the-text{
+        font-size: 20px !important;
+        margin-top: 12px !important;
+      }
+
+      .envelope-text{
+        font-size: 40px !important;
+        margin-top: 27px !important;
+        margin-left: -30px !important;
+      }
+    }
   </style>
 </head>
 
@@ -304,6 +386,13 @@
   <main id="pageContent" style="display:none;">
     <!-- Navigation bar -->
     <nav>
+      <!-- Hamburger menu for mobile only -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
       <div class="logo">ELHAM</div>
 
       <!-- Center links -->
@@ -324,7 +413,7 @@
     <video src="background video.mp4" autoplay muted id="girlVideo"></video>
 
     <!-- Boy mask on top -->
-    <img src="close.png" id="boyMask" alt="Boy Mask">
+    <img class="boy-image" src="close.png" id="boyMask" alt="Boy Mask">
 
     <!-- Intro text -->
     <div>
@@ -341,10 +430,10 @@
 
     <!-- staff after intro text animation -->
     <div id="staffText">
-      <p style="font-size: 70px; font-family: Arial, Helvetica, sans-serif;">Push</p>
-      <p style="font-size: 25px; margin-top: 24px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif;">the
+      <p class="push-text" style="font-size: 70px; font-family: Arial, Helvetica, sans-serif;">Push</p>
+      <p class="the-text" style="font-size: 25px; margin-top: 24px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif;">the
       </p>
-      <p style="font-size: 70px; margin-top: 48px; margin-left: -40px; font-family: Arial, Helvetica, sans-serif;">
+      <p class="envelope-text" style="font-size: 70px; margin-top: 48px; margin-left: -40px; font-family: Arial, Helvetica, sans-serif;">
         Envelope</p>
     </div>
 
