@@ -265,6 +265,16 @@
       z-index: 9999;
     }
 
+    #loaderText {
+      font-size: 1.2rem;
+      transition: opacity 0.8s ease;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
+
     #loader .spinner {
       width: 60px;
       height: 60px;
@@ -288,7 +298,7 @@
   <!-- 🌟 Loading Screen -->
   <div id="loader">
     <div class="spinner"></div>
-    <p>Loading…</p>
+    <p id="loaderText">Creating animation…</p>
   </div>
 
   <main id="pageContent" style="display:none;">
@@ -338,8 +348,6 @@
         Envelope</p>
     </div>
 
-
-
   </main>
 
   <script>
@@ -349,12 +357,40 @@
     let videoReady = false;
     let imageReady = false;
 
+    // ===============================
+    // 🔹 Loader rotating messages
+    // ===============================
+    const messages = [
+      "Creating animation…",
+      "Adjusting camera lens…",
+      "Almost ready…"
+    ];
+    const loaderText = document.getElementById('loaderText');
+    let msgIndex = 0;
+
+    // change the message every 2 seconds
+    const msgInterval = setInterval(() => {
+      loaderText.classList.add('fade-out');
+      setTimeout(() => {
+        msgIndex = (msgIndex + 1) % messages.length;
+        loaderText.textContent = messages[msgIndex];
+        loaderText.classList.remove('fade-out');
+      }, 800); // match transition duration in CSS
+    }, 1000);
+
+    // ===============================
+    // 🔹 Check resources
+    // ===============================
     function checkAllReady() {
       if (videoReady && imageReady) {
+        // ✅ stop changing text
+        clearInterval(msgInterval);
+
         // Hide loader and show the page
         document.getElementById('loader').style.display = 'none';
         document.getElementById('pageContent').style.display = 'block';
-        // ✅ Start animations only now
+
+        // Start animations only now
         startIntroAnimation();
       }
     }
@@ -382,7 +418,7 @@
     checkAllReady();
 
     // ===============================
-    //   ✅ Put your intro animation here
+    //   ✅ Intro animation
     // ===============================
     function startIntroAnimation() {
       const introTextIds = ['introText', 'introText1', 'introText2', 'introText3', 'introText4'];
