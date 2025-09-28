@@ -7,7 +7,8 @@
     <title>About</title>
 
     <link rel="icon" sizes="32x32" href="letter-e.png" type="image/png">
-    
+
+
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
@@ -61,7 +62,7 @@
             list-style: none;
         }
 
-        .hamburger-options-div{
+        .hamburger-options-div {
             display: flex;
             gap: 40px;
         }
@@ -143,6 +144,21 @@
             margin-top: -1px;
         }
 
+        .resume-button:hover {
+            background: linear-gradient(to right,#61159f,#6e32a1,#7b4bac) !important;
+            transform: scale(1.05);
+        }
+
+        .linkedin-button:hover{
+            background: linear-gradient(to left, #4489e3, #679fee, #87b9f6) !important;
+            transform: scale(1.05);
+        }
+
+        .github-button:hover{
+            background: linear-gradient(to right, #373737,#221f1f,#121010) !important;
+            transform: scale(1.05);
+        }
+
         .projects-div {
             width: 320px;
             height: 450px;
@@ -155,6 +171,8 @@
             transform: scale(1.05);
             box-shadow: 0 0 5px rgb(168, 76, 254), 0 0 10px rgb(168, 76, 254), 0 0 15px rgb(168, 76, 254);
         }
+
+       
 
         input::placeholder {
             color: rgb(192, 176, 207);
@@ -232,12 +250,12 @@
                 padding-left: 20px !important;
             }
 
-            .hamburger-options-div{
+            .hamburger-options-div {
                 margin-top: -17px !important;
                 display: block !important;
             }
 
-           
+
             .nav-links li a {
                 color: white !important;
                 font-size: 16px !important;
@@ -461,12 +479,15 @@
                     src="Elham.png">
 
                 <div style="margin-top: 30px; margin-left: 5px;">
-                    <button
-                        style="width: 110px; height: 45px; border-radius: 10px;  background-color: blueviolet; border: none; color: white; font-weight: bold; font-size: 15px; cursor: pointer;">Resume</button>
-                    <button
-                        style="width: 110px; height: 45px; border-radius: 10px; background-color: blueviolet;  border: none; color: white; font-weight: bold; font-size: 15px; margin-left: 10px; cursor: pointer;">LinkedIn</button><br>
-                    <button
-                        style="width: 100px; height: 45px; border-radius: 10px;  background-color: blueviolet; border: none; color: white; font-weight: bold; font-size: 15px; margin-top: 15px; margin-left: 70px; cursor: pointer;">Github</button>
+                    <button class="resume-button"
+                        style="width: 110px; height: 45px; border-radius: 10px;  background: linear-gradient(to left,#a25de4,#943de5,#8a2be2); 
+                        border: none; color: white; font-weight: bold; font-size: 15px; cursor: pointer; transition: background 0.3s ease, transform 0.3s ease;">Resume</button>
+                    <button class="linkedin-button"
+                        style="width: 110px; height: 45px; border-radius: 10px; background: linear-gradient(to right, #75a9f2,#498deb,#2f80f1);
+                        border: none; color: white; font-weight: bold; font-size: 15px; margin-left: 10px; cursor: pointer;">LinkedIn</button><br>
+                    <button class="github-button"
+                        style="width: 100px; height: 45px; border-radius: 10px;  background: linear-gradient(to right, #414141,#2d2929,#151313);
+                        border: none; color: white; font-weight: bold; font-size: 15px; margin-top: 15px; margin-left: 70px; cursor: pointer;">Github</button>
 
                 </div>
             </div>
@@ -612,10 +633,7 @@
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('show');
         });
-
     </script>
 </body>
 
 </html>
-
-
