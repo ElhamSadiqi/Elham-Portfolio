@@ -224,14 +224,14 @@
     }
 
     #introText.zoom-out {
-      transform: translate(-55vw, -30vh) scale(2.5);
+      transform: translate(-55vw, -60vh) scale(2.5);
       transition: transform 3s ease;
       /* second transition for all texts */
     }
 
     #introText1.zoom-out {
-      transform: translate(-57vw, -30vh) scale(2.5);
-      transition: transform 3s ease;
+      transform: translate(-57vw, -60vh) scale(2.5);
+      transition: transform 2.5s ease;
       /* second transition for all texts */
     }
 
@@ -308,7 +308,7 @@
     @media (max-width: 600px) {
 
       body{
-        overflow: hidden;
+        overflow: hidden !important;
       }
 
       .center-links,
@@ -326,7 +326,7 @@
         /* allows you to place it freely */
         top: 20px;
         /* distance from the top of nav */
-        left: 0px;
+        left: 340px;
         /* distance from the left edge */
       }
 
@@ -363,7 +363,13 @@
       }
 
       .boy-image {
-        width: 400px !important;
+       width: 388px !important;
+       height: 800px !important;
+      }
+
+      .background-video{
+        height: 800px !important;
+        width: 388px !important;
       }
 
       #staffText {
@@ -424,7 +430,7 @@
 
 
     <!-- Fullscreen girl video -->
-    <video src="background video.mp4" autoplay muted id="girlVideo"></video>
+    <video class="background-video" src="background video.mp4" autoplay muted id="girlVideo"></video>
 
     <!-- Boy mask on top -->
     <img class="boy-image" src="close.png" id="boyMask" alt="Boy Mask">
@@ -566,8 +572,6 @@
       }, 7500);
     }
   </script>
-
-
 
 </body>
 
