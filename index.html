@@ -128,7 +128,7 @@
       /* Start slightly lower and invisible */
       transform: translateY(10px);
       transform-origin: center center;
-      transition: transform .5s ease-out, opacity 1.5s ease;
+      transition: transform 0.5s ease-out, opacity 1.5s ease;
 
       z-index: 3;
     }
@@ -228,13 +228,13 @@
 
     #introText.zoom-out {
       transform: translate(-55vw, -30vh) scale(2.5);
-      transition: transform 3s ease;
+      transition: transform 1s ease;
       /* second transition for all texts */
     }
 
     #introText1.zoom-out {
       transform: translate(-57vw, -30vh) scale(2.5);
-      transition: transform 3s ease;
+      transition: transform 1s ease;
       /* second transition for all texts */
     }
 
@@ -392,6 +392,68 @@
         height: 101vh !important;
         object-fit: cover !important;
         object-position: 48% center !important;
+      }
+
+      #introText {
+        top: 22%;
+        left: 10%;
+        font-size: 40px;
+      }
+
+      #introText1 {
+        top: 28%;
+        left: 0;
+        font-size: 55px;
+      }
+
+      #introText2 {
+        top: 52%;
+        left: 85%;
+        color: white;
+        font-size: 40px;
+      }
+
+      #introText3 {
+        position: absolute;
+        top: 56%;
+        left: 62%;
+        color: white;
+        font-size: 55px;
+      }
+
+      #introText4 {
+        position: absolute;
+        top: 90%;
+        left: 13%;
+        color: white;
+        font-size: 10px;
+        opacity: 0;
+        transform: scale(0.3);
+        /* start at 50% of final size */
+        transform-origin: center center;
+        transition: transform 2.5s ease-out, opacity 2s ease;
+        z-index: 3;
+        word-spacing: 7px;
+        letter-spacing: 2px;
+        /* increase or decrease letter space */
+      }
+
+
+      #introText.zoom-out {
+        transform: translate(-55vw, -32vh) scale(2.5) !important;
+        transition: transform 1.5s ease !important;
+        /* second transition for all texts */
+      }
+
+      #introText1.zoom-out {
+        transform: translate(-57vw, -30vh) scale(2.5);
+        transition: transform 1.5s ease !important;
+        /* second transition for all texts */
+      }
+      
+      #introText3.zoom-out,
+      #introText2.zoom-out {
+        transition: transform 1.5s ease;
       }
 
       #staffText {
@@ -598,7 +660,7 @@
           introTextIds.forEach(id => {
             document.getElementById(id).style.display = 'none';
           });
-        }, 500); // wait long enough for the fade to finish
+        }, 1000); // wait long enough for the fade to finish
 
       }, 5000);
 
@@ -611,11 +673,6 @@
       }, 7500);
     }
   </script>
-
-
-
-
+  
 </body>
-
 </html>
-
