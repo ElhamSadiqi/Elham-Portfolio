@@ -56,9 +56,12 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
+            list-style: none;
+        }
+
+        .hamburger-options-div{
             display: flex;
             gap: 40px;
-            list-style: none;
         }
 
         nav ul.center-links li a {
@@ -172,11 +175,12 @@
 
         @media (max-width: 600px) {
 
-            body{
+            body {
                 height: 3660px;
             }
 
-            .center-links,.right-link{
+            .center-links,
+            .right-link {
                 display: none !important;
             }
 
@@ -186,167 +190,186 @@
                 gap: 5px;
                 cursor: pointer;
 
-                position: absolute; /* allows you to place it freely */
-                top: 20px;          /* distance from the top of nav */
-                left: 365px;        /* distance from the left edge */
-            }
-
-            .center-links {
                 position: absolute;
-                top: 0;
-                left: 0;
-                flex-direction: column;
-                width: 100%;
-                background: rgb(1, 1, 23);
-                transition: 0.3s;
+                /* allows you to place it freely */
+                top: 20px;
+                /* distance from the top of nav */
+                left: 365px;
+                /* distance from the left edge */
             }
 
-            .center-links.show {
-                left: 0;
-            }
-
-            nav{
-                width: 400px !important;
-            }
-
+            /* Hamburger menu dropdown for mobile */
             .nav-links {
-                position: absolute;
-                top: 0;
-                left: 0;
-                flex-direction: column;
-                width: 100%;
-                background: rgb(1, 1, 23);
-                transition: 0.3s;
+                display: none !important;
+                position: absolute !important;
+                top: 60px !important;
+                /* slightly below the hamburger */
+                left: 300px !important;
+                /* align with left edge of hamburger or nav */
+                flex-direction: column !important;
+                width: 150px !important;
+                /* compact but readable */
+                background: rgb(11, 11, 42) !important;
+                /* soft dark blue */
+                border-radius: 8px !important;
+                padding: 10px 0 !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+                transition: all 0.3s ease-in-out !important;
+                z-index: 100 !important;
+                /* on top of everything */
             }
 
+            /* Show menu when hamburger is clicked */
             .nav-links.show {
-                left: 0;
+                display: flex !important;
             }
 
+            /* Each link inside the dropdown */
             .nav-links li {
-                text-align: center;
-                margin: 15px 0;
+                margin-top: 20px !important;
+                padding-left: 20px !important;
             }
-            
+
+            .hamburger-options-div{
+                margin-top: -17px !important;
+                display: block !important;
+            }
+
            
-            .logo{
+            .nav-links li a {
+                color: white !important;
+                font-size: 16px !important;
+                font-weight: 500 !important;
+                text-decoration: none !important;
+                transition: color 0.2s ease !important;
+            }
+
+            .nav-links li a:hover {
+                color: rgb(168, 76, 254) !important;
+                /* subtle highlight on hover */
+            }
+
+            .logo {
                 margin-left: -15px;
             }
 
-             .Welcome-message-div{
+            .Welcome-message-div {
                 width: 300px;
             }
 
-            .vertical-line-circle{
+            .vertical-line-circle {
                 margin-left: -70px;
             }
 
-            .vertical-line{
+            .vertical-line {
                 height: 150px;
             }
 
-            .wave{
+            .wave {
                 font-size: 40px !important;
                 margin-left: -10px;
             }
-            .hi-text{
+
+            .hi-text {
                 font-size: 40px !important;
             }
 
-            .hi-text1,.hi-text2{
+            .hi-text1,
+            .hi-text2 {
                 font-size: 18px !important;
-                margin-top: 5px ;
+                margin-top: 5px;
             }
 
-            .intrdouction,.overview{
+            .intrdouction,
+            .overview {
                 margin-left: 45px;
             }
 
-            .profile-div{
+            .profile-div {
                 margin-left: -20px;
                 height: fit-content;
                 width: fit-content;
             }
 
-            .container-overview{
+            .container-overview {
                 display: block !important;
                 width: fit-content;
                 height: fit-content;
             }
 
-            .information-div{
+            .information-div {
                 height: fit-content;
                 width: fit-content !important;
                 padding-top: 20px;
                 margin-left: -80px !important;
             }
 
-            .detail{
+            .detail {
                 width: 370px;
             }
 
-            .text-projects{
+            .text-projects {
                 margin-left: 60px;
             }
 
-            .container-projects{
+            .container-projects {
                 display: block !important;
             }
 
-            .projects-div{
+            .projects-div {
                 margin-left: 40px;
                 margin-top: 25px;
             }
-            
-            .container-contact{
+
+            .container-contact {
                 width: 355px !important;
                 height: 520px !important;
                 margin-left: 20px !important;
             }
 
-            .get-in-touch{
+            .get-in-touch {
                 font-size: 13px !important;
                 margin-left: -10px;
                 margin-top: -15px;
             }
-            
-            .phone-icon{
+
+            .phone-icon {
                 margin-left: 75px !important;
                 margin-top: -15px;
                 width: 18px !important;
                 height: 18px !important;
             }
 
-            .phone-number{
+            .phone-number {
                 font-size: 15px !important;
                 margin-top: -15px;
             }
 
-            .contact-text{
+            .contact-text {
                 font-size: 30px !important;
             }
 
-            .name-email-div{
+            .name-email-div {
                 margin-left: 15px !important;
                 margin-top: 50px !important;
             }
 
-            .email-icon{
+            .email-icon {
                 margin-left: 95px !important;
             }
 
-            input{
+            input {
                 width: 161px !important;
                 height: 40px !important;
                 margin-left: 10px !important;
             }
 
-            .message-div{
+            .message-div {
                 margin-left: -21px !important;
                 margin-top: 20px !important;
             }
 
-            .message-input{
+            .message-input {
                 width: 335px !important;
                 height: 150px !important;
                 margin-left: 10px !important;
@@ -360,18 +383,18 @@
                 /* nudge upward */
             }
 
-            .button-div{
+            .button-div {
                 width: 335px !important;
                 height: 40px !important;
                 margin-left: 10px !important;
             }
 
-            .send-message-btn{
+            .send-message-btn {
                 margin-left: 90px !important;
                 margin-top: 10px !important;
             }
 
-            .telegram-icon{
+            .telegram-icon {
                 margin-top: 10px !important;
             }
         }
@@ -379,32 +402,35 @@
 </head>
 
 <body>
-    <nav>
-        <div>
-            <a href="index.html" class="logo">ELHAM</a>
-        </div>
-
-         <!-- Hamburger menu for mobile only -->
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <!-- Center links -->
-        <ul id="nav-links" class="center-links nav-links">
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#projects">PROJECTS</a></li>
-            <li><a href="#contact">CONTACT</a></li>
-        </ul>
-
-        <!-- Right link -->
-        <div class="right-link">
-            <a href="https://www.instagram.com/elham.sadiqi.568?igsh=MWY2eG55NDV1Y25uaQ==">INSTAGRAM</a>
-        </div>
-    </nav>
 
     <section id="about">
+        <nav>
+            <div>
+                <a href="index.html" class="logo">ELHAM</a>
+            </div>
+
+            <!-- Hamburger menu for mobile only -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Center links -->
+            <ul id="nav-links" class="center-links nav-links">
+                <div class="hamburger-options-div">
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#projects">PROJECTS</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </div>
+            </ul>
+
+            <!-- Right link -->
+            <div class="right-link">
+                <a href="https://www.instagram.com/elham.sadiqi.568?igsh=MWY2eG55NDV1Y25uaQ==">INSTAGRAM</a>
+            </div>
+        </nav>
+
         <div class="Welcome-message-div" style="margin-top: 150px; margin-left: 100px; display: flex;">
             <div class="vertical-line-circle">
                 <div style="background-color:rgb(168, 76, 254); width: 25px; height: 25px; border-radius: 100%;"></div>
@@ -413,21 +439,24 @@
             <div style="margin-left: 20px;">
                 <p class="hi-text" style="font-size: 85px; font-weight: bolder; font-family: sans-serif">Hi, I'm <span
                         style="color: rgb(168, 76, 254);">Elham </span><span class="wave">👋</span></p>
-                <p class="hi-text1" style="font-size: 35px; ">I'm a <span style="color: rgb(168, 76, 254); font-weight: bolder;">Computer
+                <p class="hi-text1" style="font-size: 35px; ">I'm a <span
+                        style="color: rgb(168, 76, 254); font-weight: bolder;">Computer
                         Enthusiast</span></p>
 
                 <p class="hi-text2" style="font-size: 32px; font-weight: bold;">Welcome to my portfolio</p>
             </div>
         </div>
 
-        <p class="intrdouction" style="margin-top: 200px; font-size: 18px; text-align: center; color: rgb(214, 214, 214);">INTRODUCTION</p>
-        <p class="overview" style="margin-top: 5px; font-size: 60px; text-align: center; font-weight: bold;">Overview.</p>
+        <p class="intrdouction"
+            style="margin-top: 200px; font-size: 18px; text-align: center; color: rgb(214, 214, 214);">INTRODUCTION</p>
+        <p class="overview" style="margin-top: 5px; font-size: 60px; text-align: center; font-weight: bold;">Overview.
+        </p>
 
         <div class="container-overview" style="display: flex; margin-left: 100px; margin-top: 30px;">
             <div class="profile-div">
                 <img style="width: 250px; height: 250px; border-radius: 100%;
                     box-shadow: 0 0 10px rgb(168, 76, 254), 0 0 20px rgb(168, 76, 254), 0 0 30px rgb(168, 76, 254); "
-                src="girl pic.jpg">
+                    src="girl pic.jpg">
 
                 <div style="margin-top: 30px; margin-left: 5px;">
                     <button
@@ -479,7 +508,8 @@
     </section>
 
     <section id="projects">
-        <p class="text-projects" style="font-size: 65px; font-weight: bold; text-align: center; margin-top: 80px;">Projects.</p>
+        <p class="text-projects" style="font-size: 65px; font-weight: bold; text-align: center; margin-top: 80px;">
+            Projects.</p>
 
         <div class="container-projects" style="display: flex; justify-content: space-around; margin-top: 20px;">
             <div class="projects-div">
@@ -527,15 +557,17 @@
     </section>
 
     <section id="contact">
-        <div
-            class="container-contact" style="background-color: rgb(11, 11, 42); width: 910px; height: 675px; border-radius: 15px; margin-top: 100px; margin-left: 100px;">
+        <div class="container-contact"
+            style="background-color: rgb(11, 11, 42); width: 910px; height: 675px; border-radius: 15px; margin-top: 100px; margin-left: 100px;">
             <div class="get-in-touch-phone-div" style="display: flex; padding-top: 35px; margin-left: 35px;">
                 <p class="get-in-touch" style="font-size: 19px; color: rgb(195, 195, 255);">GET IN TOUCH</p>
-                <img class="phone-icon" style="width: 20px; height: 20px; border-radius: 100%; margin-left: 535px;" src="phone-call.png">
+                <img class="phone-icon" style="width: 20px; height: 20px; border-radius: 100%; margin-left: 535px;"
+                    src="phone-call.png">
                 <p class="phone-number" style="font-size: 19px; margin-left: 5px; color: #C013F4">+93 787 815 007</p>
             </div>
 
-            <p class="contact-text" style="font-weight: bold; font-size: 50px; text-align: center; margin-top: 30px;">CONTACT.</p>
+            <p class="contact-text" style="font-weight: bold; font-size: 50px; text-align: center; margin-top: 30px;">
+                CONTACT.</p>
 
             <div class="name-email-div" style="display: flex; margin-top: 65px; margin-left: 35px;">
                 <img style="width: 20px; height: 20px; border-radius: 100%;" src="profile.png">
@@ -562,23 +594,24 @@
                 type="text"
                 placeholder="Hey Elham, love the website! I'd like to chat about some opportunities you might like! 🎉">
 
-            <div
-                class="button-div" style="display: flex; margin-left: 38px; border: none; border-radius: 10px; width: 833px; height: 50px; margin-top: 30px; color: white; background: linear-gradient(to right, #601471,#8f1da8, #ff5eaf,#ff0080); font-weight: bold; font-size: 18px;">
+            <div class="button-div"
+                style="display: flex; margin-left: 38px; border: none; border-radius: 10px; width: 833px; height: 50px; margin-top: 30px; color: white; background: linear-gradient(to right, #601471,#8f1da8, #ff5eaf,#ff0080); font-weight: bold; font-size: 18px;">
                 <p class="send-message-btn" style="margin-top: 15px; margin-left: 350px;">Send Message</p>
-                <img class="telegram-icon" style="width: 20px; height: 20px; margin-top: 16px; margin-left: 5px;" src="telegram.png">
+                <img class="telegram-icon" style="width: 20px; height: 20px; margin-top: 16px; margin-left: 5px;"
+                    src="telegram.png">
             </div>
         </div>
     </section>
 
     <script>
         const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
+        const navLinks = document.querySelector('.nav-links');
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('show');
         });
+
     </script>
 </body>
 
 </html>
-
