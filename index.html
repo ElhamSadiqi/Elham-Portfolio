@@ -458,7 +458,7 @@
 
   </main>
 
-  <script>
+ <script>
     const video = document.getElementById('girlVideo');
     const image = document.getElementById('boyMask');
 
@@ -539,7 +539,7 @@
         }, 1000);
       });
 
-      // Start zoom after 3s
+      // Start zoom after 5s
       setTimeout(() => {
         boyMask.style.transform = 'scale(6)';
         introTextIds.forEach(id => {
@@ -558,6 +558,14 @@
           });
         }, 2500);
 
+        // 🔹 NEW: completely remove them from the layout after fade
+        setTimeout(() => {
+          boyMask.style.display = 'none';
+          introTextIds.forEach(id => {
+            document.getElementById(id).style.display = 'none';
+          });
+        }, 3500); // wait long enough for the fade to finish
+
       }, 5000);
 
       // Show staff text after 7.5s
@@ -568,11 +576,10 @@
         });
       }, 7500);
     }
-  </script>
-
-
+</script>
 
 </body>
 
 </html>
+
 
