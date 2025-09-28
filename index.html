@@ -67,9 +67,12 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      list-style: none;
+    }
+
+    .hamburger-options-div {
       display: flex;
       gap: 40px;
-      list-style: none;
     }
 
     nav ul.center-links li a {
@@ -326,36 +329,58 @@
         /* allows you to place it freely */
         top: 20px;
         /* distance from the top of nav */
-        left: 345px;
+        left: 325px;
         /* distance from the left edge */
       }
 
-      .center-links {
-        position: absolute;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        width: 100%;
-        background: rgb(1, 1, 23);
-        transition: 0.3s;
-      }
-
-      .center-links.show {
-        left: 0;
-      }
-
+      /* Hamburger menu dropdown for mobile */
       .nav-links {
-        position: absolute;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        width: 100%;
-        background: rgb(1, 1, 23);
-        transition: 0.3s;
+        display: none !important;
+        position: absolute !important;
+        top: 50px !important;
+        /* slightly below the hamburger */
+        left: 280px !important;
+        /* align with left edge of hamburger or nav */
+        flex-direction: column !important;
+        width: 150px !important;
+        /* compact but readable */
+        background: rgb(11, 11, 42) !important;
+        /* soft dark blue */
+        border-radius: 8px !important;
+        padding: 10px 0 !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+        transition: all 0.3s ease-in-out !important;
+        z-index: 100 !important;
+        /* on top of everything */
       }
 
+      /* Show menu when hamburger is clicked */
       .nav-links.show {
-        left: 0;
+        display: flex !important;
+      }
+
+      /* Each link inside the dropdown */
+      .nav-links li {
+        margin-top: 20px !important;
+        padding-left: 20px !important;
+      }
+
+      .hamburger-options-div {
+        margin-top: -17px !important;
+        display: block !important;
+      }
+
+      .nav-links li a {
+        color: white !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        transition: color 0.2s ease !important;
+      }
+
+      .nav-links li a:hover {
+        color: rgb(168, 76, 254) !important;
+        /* subtle highlight on hover */
       }
 
       .logo {
@@ -412,11 +437,12 @@
 
       <div class="logo">ELHAM</div>
 
-      <!-- Center links -->
-      <ul class="center-links">
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="about.html#projects">PROJECTS</a></li>
-        <li><a href="about.html#contact">CONTACT</a></li>
+      <ul id="nav-links" class="center-links nav-links">
+        <div class="hamburger-options-div">
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="about.html#projects">PROJECTS</a></li>
+          <li><a href="about.html#contact">CONTACT</a></li>
+        </div>
       </ul>
 
       <!-- Right link -->
@@ -458,7 +484,15 @@
 
   </main>
 
- <script>
+  <script>
+    // hamburger for mobile
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
     const video = document.getElementById('girlVideo');
     const image = document.getElementById('boyMask');
 
@@ -564,7 +598,7 @@
           introTextIds.forEach(id => {
             document.getElementById(id).style.display = 'none';
           });
-        }, 3500); // wait long enough for the fade to finish
+        }, 500); // wait long enough for the fade to finish
 
       }, 5000);
 
@@ -576,10 +610,11 @@
         });
       }, 7500);
     }
-</script>
+  </script>
+
+
+
 
 </body>
 
 </html>
-
-
