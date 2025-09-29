@@ -145,17 +145,17 @@
         }
 
         .resume-button:hover {
-            background: linear-gradient(to right,#61159f,#6e32a1,#7b4bac) !important;
+            background: linear-gradient(to right, #61159f, #6e32a1, #7b4bac) !important;
             transform: scale(1.05);
         }
 
-        .linkedin-button:hover{
+        .linkedin-button:hover {
             background: linear-gradient(to left, #4489e3, #679fee, #87b9f6) !important;
             transform: scale(1.05);
         }
 
-        .github-button:hover{
-            background: linear-gradient(to right, #373737,#221f1f,#121010) !important;
+        .github-button:hover {
+            background: linear-gradient(to right, #373737, #221f1f, #121010) !important;
             transform: scale(1.05);
         }
 
@@ -172,7 +172,7 @@
             box-shadow: 0 0 5px rgb(168, 76, 254), 0 0 10px rgb(168, 76, 254), 0 0 15px rgb(168, 76, 254);
         }
 
-       
+
 
         input::placeholder {
             color: rgb(192, 176, 207);
@@ -192,6 +192,11 @@
             top: -75px;
             /* nudge upward */
         }
+
+        .button-div:hover{
+            background: linear-gradient(to right, #5f256f,#730d8a, #d2488d,#d41c78) !important;
+        }
+
 
         @media (max-width: 600px) {
 
@@ -374,14 +379,32 @@
                 margin-top: 50px !important;
             }
 
+            .name-text,
+            .email-text,
+            .message-text{
+                font-size: 15px !important;
+                margin-top: 0px !important;
+            }
+
+            .person-icon,
+            .message-icon{
+                width: 16px !important;
+                height: 16px !important;
+            }
             .email-icon {
-                margin-left: 95px !important;
+                margin-left: 107px !important;
+                width: 15px !important;
+                height: 16px !important;
             }
 
             input {
                 width: 161px !important;
                 height: 40px !important;
                 margin-left: 10px !important;
+            }
+
+            input::placeholder {
+                font-size: 14px !important;
             }
 
             .message-div {
@@ -397,9 +420,10 @@
             }
 
             .message-input::placeholder {
+                font-size: 7.8px !important;
                 position: relative;
                 top: -55px;
-                left: -10px;
+                left: -15px;
                 /* nudge upward */
             }
 
@@ -407,16 +431,25 @@
                 width: 335px !important;
                 height: 40px !important;
                 margin-left: 10px !important;
+                font-size: 16px !important;
+            }
+
+            .button-div:hover{
+                background: linear-gradient(to right, #51135f,#84219b, #eb60a6,#eb0578) !important;
             }
 
             .send-message-btn {
-                margin-left: 90px !important;
+                margin-left: 100px !important;
                 margin-top: 10px !important;
             }
 
             .telegram-icon {
                 margin-top: 10px !important;
+                width: 18px !important;
+                height: 18px !important;
             }
+
+        
         }
     </style>
 </head>
@@ -459,9 +492,8 @@
             <div style="margin-left: 20px;">
                 <p class="hi-text" style="font-size: 85px; font-weight: bolder; font-family: sans-serif">Hi, I'm <span
                         style="color: rgb(168, 76, 254);">Elham </span><span class="wave">👋</span></p>
-                <p class="hi-text1" style="font-size: 35px; ">I'm a <span
-                        style="color: rgb(168, 76, 254); font-weight: bolder;">Computer
-                        Enthusiast</span></p>
+                <p class="hi-text1" style="font-size: 35px; ">I'm a <span id="computer-enthusiast"
+                        style="color: rgb(168, 76, 254); font-weight: bolder;"></span></p>
 
                 <p class="hi-text2" style="font-size: 32px; font-weight: bold;">Welcome to my portfolio</p>
             </div>
@@ -536,17 +568,19 @@
 
         <div class="container-projects" style="display: flex; justify-content: space-around; margin-top: 20px;">
             <div class="projects-div">
-                <img style="width: 289px; height: 220px; border-radius: 15px; margin-top: 15px; margin-left: 15px;"
-                    src="huly.png">
-                <p style="margin-left: 15px; margin-top: 10px; font-size: 25px; font-weight: bold;">Huly.io page</p>
-                <p style="margin-left: 15px; margin-top: 10px; color: rgb(205, 243, 255);">I recreated the Huly.io
-                    marketing
-                    site with pixel-perfect accuracy, rebuilding its animations and transitions from scratch, while
-                    ensuring
-                    a responsive, cross-browser design.</p>
-                <button onclick="window.open('https://elhamsadiqi.github.io/hulystudio/', '_blank')"
-                    style="background-color: black; color: white; border: none; width: 120px; height: 40px; border-radius: 10px; margin-left: 15px; margin-top: 10px; font-weight: bold; font-size: 15px; cursor: pointer;">Live
-                    project</button>
+                <div style="width: 289px;">
+                    <img style="width: 289px; height: 220px; border-radius: 15px; margin-top: 15px; margin-left: 15px;"
+                        src="huly.png">
+                    <p style="margin-left: 15px; margin-top: 10px; font-size: 25px; font-weight: bold;">Huly.io page</p>
+                    <p style="margin-left: 15px; margin-top: 10px; color: rgb(205, 243, 255);">I recreated the Huly.io
+                        marketing
+                        site with pixel-perfect accuracy, rebuilding its animations and transitions from scratch, while
+                        ensuring
+                        a responsive, cross-browser design.</p>
+                    <button onclick="window.open('https://elhamsadiqi.github.io/hulystudio/', '_blank')"
+                        style="background-color: black; color: white; border: none; width: 120px; height: 40px; border-radius: 10px; margin-left: 15px; margin-top: 10px; font-weight: bold; font-size: 15px; cursor: pointer;">Live
+                        project</button>
+                </div>
             </div>
             <div class="projects-div">
                 <img style="width: 289px; height: 220px; border-radius: 15px; margin-top: 15px; margin-left: 15px;"
@@ -593,11 +627,11 @@
                 CONTACT.</p>
 
             <div class="name-email-div" style="display: flex; margin-top: 65px; margin-left: 35px;">
-                <img style="width: 20px; height: 20px; border-radius: 100%;" src="profile.png">
-                <p style="margin-left: 10px; font-weight: bold; font-size: 18px;">Name</p>
+                <img class="person-icon" style="width: 20px; height: 20px; border-radius: 100%;" src="profile.png">
+                <p class="name-text" style="margin-left: 10px; font-weight: bold; font-size: 18px;">Name</p>
 
                 <img class="email-icon" style="width: 18px; height: 18px; margin-left: 355px;" src="email.png">
-                <p style="margin-left: 10px; font-weight: bold; font-size: 18px;">Email</p>
+                <p class="email-text" style="margin-left: 10px; font-weight: bold; font-size: 18px;">Email</p>
             </div>
 
             <input
@@ -608,8 +642,8 @@
                 type="text" placeholder="Your email">
 
             <div class="message-div" style="display: flex; margin-top: 35px;">
-                <img style="width: 18px; height: 18px; margin-left: 38px;" src="speech-bubble.png">
-                <p style="margin-left: 10px; font-weight: bold; font-size: 18px;">Message</p>
+                <img class="message-icon" style="width: 18px; height: 18px; margin-left: 38px;" src="speech-bubble.png">
+                <p class="message-text" style="margin-left: 10px; font-weight: bold; font-size: 18px;">Message</p>
             </div>
 
             <input class="message-input"
@@ -633,6 +667,36 @@
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('show');
         });
+
+        let texts = [
+            "Computer Enthusiast",
+            "web developer",
+            "passionate about coding"
+        ];
+
+        let textIndex = 0;  // which sentence we’re on
+        let charIndex = 0;  // which character we’re typing
+        const speed = 120;   // ms per character
+        const pause = 2500; // pause between full sentences
+
+        function typeWriter() {
+            const el = document.getElementById("computer-enthusiast");
+            if (charIndex < texts[textIndex].length) {
+                el.innerHTML += texts[textIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // finished this sentence -> wait, then clear and go to next
+                setTimeout(() => {
+                    el.innerHTML = "";
+                    charIndex = 0;
+                    textIndex = (textIndex + 1) % texts.length; // loop back to first
+                    typeWriter();
+                }, pause);
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", typeWriter);
     </script>
 </body>
 
